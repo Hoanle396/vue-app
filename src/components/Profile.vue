@@ -272,6 +272,11 @@ export default {
       }).catch((error) => {
         alert(error.response.data.message)
       })
+    },
+    remove: function(product){
+        let objArr = JSON.parse(window.localStorage.getItem("cart"));
+        this.products = objArr.filter(data => data.product_id != product.product_id);
+         localStorage.setItem('cart', JSON.stringify(this.products))
     }
   },
 };
