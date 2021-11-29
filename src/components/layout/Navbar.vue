@@ -1,6 +1,6 @@
 <template>
   <div>
-    <nav>
+    <nav class="navbar navbar-expand-lg navbar-light" id="mainNav">
      <div class="container">
         <router-link class="nav-link js-scroll-trigger" to="/">
           <img
