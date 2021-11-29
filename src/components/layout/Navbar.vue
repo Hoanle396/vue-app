@@ -1,5 +1,6 @@
 <template>
   <div>
+    <nav>
      <div class="container">
         <router-link class="nav-link js-scroll-trigger" to="/">
           <img

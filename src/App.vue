@@ -22,5 +22,4 @@ import 'jquery/src/jquery.js';
 
 <style>
 @import "~bootstrap/dist/css/bootstrap.css";
-
 </style>
