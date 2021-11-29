@@ -9,10 +9,10 @@
       </div>
       <div class="row">
         <div class="col-md-5">
-          <h3>Dịch vụ y tế từ xa dành cho bệnh nhân COVID-19</h3>
+          <h3>Dịch Vụ Tư Vấn Y Tế - Gặp Mặt Chuyên Gia</h3>
         </div>
         <div class="col-md-7 col-offset-5">
-          <h5>Vui lòng điền vào thông tin bên dưới</h5>
+          <h5>Vui lòng điền vào thông tin bên dưới để đăng kí</h5>
           <form @submit.prevent="send()" >
             <div class="form-group row row-eq-height">
               <div class="col-md-12">
@@ -115,7 +115,7 @@
         <div class="col-md-12">
           <div>
             <p>Mến Gửi ,</p>
-            <p>Cảm ơn bạn đã gửi yêu cầu đặt hẹn khám tại</p>
+            <p>Cảm ơn bạn đã gửi yêu cầu đặt hẹn khám tại chúng tôi</p>
             <p>
               Nhân viên phụ trách đặt hẹn của chúng tôi nhận được yêu cầu từ bạn
               và sẽ gửi email cho bạn để xác nhận cuộc hẹn này

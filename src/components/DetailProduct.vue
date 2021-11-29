@@ -11,7 +11,7 @@
                     <span >$ {{product.product_price}}</span>
                 </div>
                 <p class="lead" v-html="product.product_description"></p>
-                 <span v-if="isadd" class="text-success">Đã thêm Vào Giỏ Hàng</span>
+                 <span v-show="isadd" class="text-success">Đã thêm Vào Giỏ Hàng</span>
                 <div class="d-flex">
                    
                     <button class="btn btn-outline-dark flex-shrink-0" type="button" v-on:click='addcart(product)'>

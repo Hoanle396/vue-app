@@ -79,7 +79,7 @@
                               <td>{{ product.product_price }}</td>
                               <td>{{ product.quantity }}</td>
                               <td>{{ product.quantity*product.product_price}}</td>
-                              <td><button @click="remove(product)">delete</button></td>
+                              <td><button @click="remove(product)" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></button></td>
                             </tr>
                             <tr> <center><router-link class="btn btn-success" to="/Checkout">Thanh Toán</router-link></center></tr>
                           </tbody>

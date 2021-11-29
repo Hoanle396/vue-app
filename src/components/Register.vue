@@ -49,11 +49,11 @@
             {{ error.password2[0]}}
           </div>
         </div>
-        <input type="submit" class="btn btn-primary btn-block" value="Login" />
+        <input type="submit" class="btn btn-primary btn-block" value="Register" />
       </form>
       <div>
        have account ?
-        <router-link to="/Login">Sign up</router-link>
+        <router-link to="/Login">Login</router-link>
       </div>
     </div>
   </div>
