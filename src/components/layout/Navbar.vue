@@ -1,6 +1,6 @@
 <template>
   <div>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-black" id="mainNav">
+    <nav class="navbar navbar-expand-lg navbar-dark " id="mainNav">
       <div class="container">
         <router-link class="nav-link js-scroll-trigger" to="/">
           <img
@@ -63,6 +63,6 @@
 </script>
 <style >
 #mainNav {
-  /* background-color: #3399ff !important; */
+  background: linear-gradient(133deg,#eeedf7,#7b83f7,#3105f7)!important;
 }
 </style>
