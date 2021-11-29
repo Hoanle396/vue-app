@@ -38,6 +38,7 @@
             </li>
             <li class="nav-item">
               <router-link class="nav-link js-scroll-trigger" to="/News"
+                ><i class="fas fa-newspaper mr-2"></i> Tin Tức</router-link>
             </li>
             <li class="nav-item">
               <router-link class="nav-link js-scroll-trigger" to="/Feedback"
