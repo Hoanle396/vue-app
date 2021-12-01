@@ -1,10 +1,6 @@
 <template>
   <div>
-<<<<<<< HEAD
-    <nav class="navbar navbar-expand-lg navbar-light" id="mainNav">
-=======
   <nav class="navbar navbar-expand-lg navbar-light " id="mainNav">
->>>>>>> 566bf32a450d3be510b61196abde9eede7bbb8ac
      <div class="container">
         <router-link class="nav-link js-scroll-trigger" to="/">
           <img
