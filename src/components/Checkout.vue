@@ -9,7 +9,7 @@
       />
       <h2>Thanh Toán</h2>
       <p class="lead">
-        Vui lòng điền các thông tin bên dưới để tiếp tục thanh toán.
+        {{message}}
       </p>
     </div>
     <div class="row">
@@ -144,6 +144,7 @@ export default {
       user: {},
       products: {},
       total: 0,
+      message: "Vui lòng điền các thông tin bên dưới để tiếp tục thanh toán.",
     };
   },
   mounted() {
@@ -173,18 +174,17 @@ export default {
 
       BaseRequest.post("checkout", data)
         .then((response) => {
-          alert(response.data.message);
+          this.message=response.data.message;
           window.localStorage.setItem("code", response.data.code);
           window.localStorage.setItem("total", this.total);
           if (response.data.redirect) {
             this.$router.push({ name: "bank" });
           } else {
             window.localStorage.removeItem("cart");
-            this.$router.push({ name: "home" });
           }
         })
         .catch((error) => {
-          console.log(error);
+          this.message = error.response.data.message;
         });
     },
   },
