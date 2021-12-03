@@ -4,7 +4,7 @@
       <!-- Blog entries-->
       <div  class="col-lg-8">
         <!-- Featured blog post-->
-        <div class="card mb-4">
+        <div class="card mb-4" v-if="newss">
           <a href="#!"
             ><img
               class="card-img-top"
