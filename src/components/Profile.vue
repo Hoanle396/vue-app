@@ -20,7 +20,7 @@
                   <a href="#account-change" data-toggle="tab" class=""
                     ><i class="fa fa-lock"></i> Đổi Mật Khẩu</a
                   >
-                  <a href="Logout"
+                  <a href="#" @click="logout()"
                     ><i class="fa fa-sign-out-alt" aria-hidden="true"></i> Đăng
                     xuất</a
                   >
@@ -41,7 +41,7 @@
                         <p>
                           Xin Chào, <strong>{{ user.name }}</strong> (nếu không
                           phải <strong>{{ user.name }}</strong
-                          ><a href="Logout" class="logout"> Đăng xuất</a>)
+                          ><a href="#" @click="logout()" class="logout"> Đăng xuất</a>)
                         </p>
                       </div>
 
@@ -276,7 +276,16 @@ export default {
     remove: function(product){
         let objArr = JSON.parse(window.localStorage.getItem("cart"));
         this.products = objArr.filter(data => data.product_id != product.product_id);
+        
          localStorage.setItem('cart', JSON.stringify(this.products))
+         if(this.products.length==0){
+           window.localStorage.removeItem("cart")
+           this.products=null;
+        }
+    },
+    logout : function(){
+       window.localStorage.removeItem("token")
+       this.$router.push({name:"home"})
     }
   },
 };
