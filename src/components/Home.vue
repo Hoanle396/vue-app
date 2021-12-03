@@ -19,7 +19,7 @@
               </div>
             </div>
           </div>
-          <div class="col-lg-8 d-flex align-items-stretch">
+          <div class="col-xl-8 d-flex align-items-stretch">
             <div class="icon-boxes d-flex flex-column justify-content-center">
               <div class="row">
                 <div class="col-xl-4 d-flex align-items-stretch">
