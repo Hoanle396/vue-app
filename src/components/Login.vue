@@ -1,7 +1,7 @@
 <template>
   <div class="containers pt-5 pb-5">
     <div class="login">
-      <h1>Login</h1>
+      <h1>Đăng Nhập</h1>
        <h6 class="text-warning" v-if="message">{{ message }}</h6>
       <form @submit.prevent="login()">
         <div class="form-group">
@@ -26,12 +26,12 @@
             {{ error.password[0] }}
           </div>
         </div>
-        <input type="submit" class="btn btn-primary btn-block" value="Login" />
+        <input type="submit" class="btn btn-primary btn-block" value="Đăng nhập" />
       </form>
-      <p>Forgot your password ?</p>
+      <p>khôi phục mật khẩu?</p>
       <div>
-        Don't have account ?
-       <router-link to="/Register">Sign up</router-link>
+        chưa có tài khoản ?
+       <router-link to="/Register">Đăng kí</router-link>
       </div>
     </div>
   </div>
