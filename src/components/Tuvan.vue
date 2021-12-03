@@ -12,7 +12,7 @@
           <h3>Dịch Vụ Tư Vấn Y Tế - Gặp Mặt Chuyên Gia</h3>
         </div>
         <div class="col-md-7 col-offset-5">
-          <h5>Vui lòng điền vào thông tin bên dưới để đăng kí</h5>
+          <h5>{{message}}</h5>
           <form @submit.prevent="send()" >
             <div class="form-group row row-eq-height">
               <div class="col-md-12">
@@ -162,7 +162,7 @@ export default {
         homePhone :'',
         officePhone :'',
       },
-      message : '',
+      message : 'Vui lòng điền vào thông tin bên dưới để đăng kí',
     }
   },
   mounted() {
@@ -183,7 +183,7 @@ export default {
     send(){
       BaseRequest.post('service',this.service)
       .then(response=>{
-        alert("đã đăng kí thành công !")
+       this.message="Đã đăng kí thành công !"
          console.log(response)
          this.service.fullname = '';
          this.service.gender = '';
@@ -194,8 +194,8 @@ export default {
          this.service.homePhone = '';
          this.service.officePhone = '';
       })
-      .catch(error=>{
-          console.log(error)
+      .catch(()=>{
+          this.message="Đăng kí thất bại có lỗi từ hệ thống !";
       })
     }
   },
