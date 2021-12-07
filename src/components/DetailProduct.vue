@@ -8,7 +8,7 @@
                 <div class="small mb-1">{{product.product_manufacturer}}</div>
                 <h1 class=" fw-bolder text-black">{{product.product_name}}</h1>
                 <div class="fs-5 mb-5">
-                    <span >$ {{product.product_price}}</span>
+                    <span class="text-primary" >Giá : {{new Intl.NumberFormat('de-DE', { style: 'currency', currency: 'VND' }).format(product.product_price)}}</span>
                 </div>
                 <p class="lead" v-html="product.product_description"></p>
                  <span v-show="isadd" class="text-success">Đã thêm Vào Giỏ Hàng</span>
@@ -16,7 +16,7 @@
                    
                     <button class="btn btn-outline-dark flex-shrink-0" type="button" v-on:click='addcart(product)'>
                         <i class="bi-cart-fill me-1"></i>
-                        Add to cart
+                        Thêm vào giỏ
                     </button>
                 </div>
             </div>
@@ -71,6 +71,7 @@ export default {
           else{
                cart.push({...product, quantity: 1 })
                localStorage.setItem('cart', JSON.stringify(cart))
+               this.isadd=true
           }
       }
 

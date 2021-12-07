@@ -2,17 +2,18 @@
   <div class="container mt-5 mb-5">
     <div class="row">
       <!-- Blog entries-->
-      <div  class="col-lg-8">
+      <div  class="col-lg-8" v-if="newss">
         <!-- Featured blog post-->
-        <div class="card mb-4" v-if="newss">
+        <div class="card mb-4" >
           <a href="#!"
             ><img
               class="card-img-top"
               :src="newss.image"
               alt="..."
+              height="400"
           /></a>
           <div class="card-body">
-            <div class="small text-muted">{{newss.created_at}}</div>
+            <div class="small text-muted">{{new Date(newss.created_at).toLocaleString()}}</div>
             <h2 class="card-title">{{newss.title}}</h2>
               <router-link class="btn btn-outline-dark mt-auto" :to="/news/+newss.id">Xem chi tiết</router-link>
           </div>
@@ -30,7 +31,7 @@
                   alt="..."
               /></a>
               <div class="card-body">
-                <div class="small text-muted">{{ item.created_at }}</div>
+                <div class="small text-muted">{{ new Date(item.created_at).toLocaleString() }}</div>
                 <h2 class="card-title h4">{{item.title}}</h2>
                 <router-link class="btn btn-outline-dark mt-auto" :to="/news/+item.id">Xem chi tiết</router-link>
               </div>
@@ -45,7 +46,7 @@
         ></Pagination>
       </div>
       <!-- Side widgets-->
-      <div class="col-lg-4">
+      <div class="col-lg-4" v-if="newss">
         <!-- Search widget-->
         <div class="card mb-4">
           <div class="card-header">Search</div>
@@ -74,7 +75,7 @@ import BaseRequest from "../core/BaseRequest";
 export default {
   data() {
     return {
-      newss: [],
+      newss:null,
       news: [],
     };
   },
@@ -97,7 +98,8 @@ export default {
       })
     },
   },
-};
+}
+
 </script>
 <style>
 .page-link {

@@ -1,14 +1,34 @@
 <template>
   <section class="py-5">
     <div class="container px-4 px-lg-5 mt-5">
+      
       <div 
         class="
           row
           gx-4 gx-lg-5
-          row-cols-2 row-cols-md-3 row-cols-xl-4
+        
           justify-content-center
         "
       >
+        <div class="col-md-12" v-if="form">
+       <div class="col-md-4" style="float:right;">
+         <div class="card mb-4">
+          <div class="card-header">Tìm kiếm</div>
+          <div class="card-body">
+            <div class="input-group">
+              <input
+                class="form-control"
+                type="text"
+                v-model="search"
+                @keyup="searchs()"
+                placeholder="Nhập Nội Dung " 
+              />
+            </div>
+          </div>
+        </div>
+       </div>
+        
+         </div>
         <div
           v-for="item in product.data"
           :key="item.product_id"
@@ -23,7 +43,7 @@
                 <!-- Product name-->
                 <h5 class="fw-bolder">{{ item.product_name }}</h5>
                 <!-- Product price-->
-                {{ item.product_price }}
+                {{ new Intl.NumberFormat('de-DE', { style: 'currency', currency: 'VND' }).format(item.product_price) }}
               </div>
             </div>
             <!-- Product actions-->
@@ -47,6 +67,8 @@ export default {
     return {
       product: {},
       message: "",
+      search: "",
+      form:false,
     };
   },
   mounted() {
@@ -61,11 +83,27 @@ export default {
         .then((response) => {
           this.product = response.data;   
           console.log(this.product)
+          if(this.products){
+            this.form = true;
+          }
         })
         .catch(() => {
           this.message='Đã Có Lỗi Ở Đây!';
         });
     },
+    searchs: function(page=1){
+        if(this.search==""){
+          this.products();
+        }
+         BaseRequest.get("search/"+this.search+"?page="+page)
+        .then((response) => {
+          this.product = response.data;   
+          console.log(this.product)
+        })
+        .catch(() => {
+          this.message='Đã Có Lỗi Ở Đây!';
+        });
+    }
   },
 };
 </script>

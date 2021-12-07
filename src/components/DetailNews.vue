@@ -10,7 +10,7 @@
             <h1 class="fw-bolder mb-1">{{news.title}}</h1>
             <!-- Post meta content-->
             <div class="text-muted fst-italic mb-2">
-             {{news.created_at}}
+             {{new Date(news.created_at).toLocaleString()}}
             </div>
             <!-- Post categories-->
             

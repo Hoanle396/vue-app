@@ -186,9 +186,9 @@ export default {
        this.message="Đã đăng kí thành công !"
          console.log(response)
          this.service.fullname = '';
-         this.service.gender = '';
+         this.service.gender = 'Nam';
          this.service.birthday = '';
-         this.service.address = '';
+         this.service.address = 'Thành phố Đà Nẵng';
          this.service.email = '';
          this.service.mobilePhone = '';
          this.service.homePhone = '';
