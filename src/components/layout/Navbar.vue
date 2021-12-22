@@ -22,7 +22,7 @@
           <i class="fas fa-bars ml-1"></i>
         </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
-          <ul class="navbar-nav text-uppercase ml-auto">
+          <ul class="navbar-nav text-uppercase">
             <li class="nav-item">
               <router-link class="nav-link js-scroll-trigger" to="/"
                 ><i class="fas fa-home mr-2"></i> Trang Chủ</router-link
@@ -63,5 +63,10 @@
 <style >
 #mainNav {
   background: linear-gradient(133deg,#eeedf7,#7b83f7,#3105f7)!important;
+}
+.navbar-nav{
+  /* margin-left: 30% !important; */
+  float: right;
+  margin-left:auto;
 }
 </style>

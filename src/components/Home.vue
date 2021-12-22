@@ -144,7 +144,8 @@
           <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
             <div class="icon-box">
               <div class="icon"><i class="fas fa-heartbeat"></i></div>
-              <h4><a href="">Sức khỏe</a></h4>
+              <h4>
+              <router-link  to="/Tuvan"> Sức khỏe</router-link></h4>
               <p>Kiểm tra sàng lọc và hỏi đáp về sức khỏe</p>
             </div>
           </div>
@@ -152,7 +153,8 @@
           <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-md-0">
             <div class="icon-box">
               <div class="icon"><i class="fas fa-pills"></i></div>
-              <h4><a href="">Thuốc</a></h4>
+               <h4>
+              <router-link  to="/Tuvan">Thuốc</router-link></h4>
               <p>Kê đơn thuốc tốt nhất cho các bệnh lý giúp giảm tối đa các bệnh lý nghiệm trọng .</p>
             </div>
           </div>
@@ -160,7 +162,8 @@
           <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-lg-0">
             <div class="icon-box">
               <div class="icon"><i class="fas fa-hospital-user"></i></div>
-              <h4><a href="">Chẩn Đoán</a></h4>
+              <h4>
+              <router-link  to="/Tuvan"> Chẩn Đoán</router-link></h4>
               <p>Chẩn đoán chính xác các bệnh lý giúp bệnh nhân kịp thời phát hiện và chữa trị</p>
             </div>
           </div>
@@ -168,7 +171,8 @@
           <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4">
             <div class="icon-box">
               <div class="icon"><i class="fas fa-dna"></i></div>
-              <h4><a href="">Thời gian</a></h4>
+               <h4>
+              <router-link  to="/Tuvan">Thời Gian</router-link></h4>
               <p>Sắp xếp thời gian hợp lý dể gặp khách hàng</p>
             </div>
           </div>
@@ -176,7 +180,8 @@
           <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4">
             <div class="icon-box">
               <div class="icon"><i class="fas fa-wheelchair"></i></div>
-              <h4><a href="">Sản phẩm</a></h4>
+               <h4>
+              <router-link  to="/Product">Sản Phẩm</router-link></h4>
               <p>Cung cấp các sản phẩm tốt nhất cho công tác chữa trị</p>
             </div>
           </div>
@@ -184,7 +189,8 @@
           <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4">
             <div class="icon-box">
               <div class="icon"><i class="fas fa-notes-medical"></i></div>
-              <h4><a href="">Y tế</a></h4>
+               <h4>
+              <router-link  to="/Product"> Y Tế</router-link></h4>
               <p>Các vật dụng y tế sơ cứu cần thiết cho mỗi gia đình</p>
             </div>
           </div>
@@ -310,7 +316,7 @@ export default {
   display: inline-block;
   background: rgba(255, 255, 255, 0.2);
   padding: 6px 30px 8px 30px;
-  color: #fff;
+  color: #0f00dd;
   border-radius: 50px;
   transition: all ease-in-out 0.4s;
 }
@@ -325,7 +331,7 @@ export default {
   text-align: center;
   border-radius: 10px;
   background: #fff;
-  box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.3);
   padding: 40px 30px;
   width: 100%;
 }

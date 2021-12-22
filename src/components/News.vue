@@ -26,13 +26,13 @@
             <div class="card mb-4">
               <a href="#!"
                 ><img
-                  class="card-img-top"
+                  class="card-img-top img-fulid"
                   :src="item.image"
                   alt="..."
               /></a>
               <div class="card-body">
                 <div class="small text-muted">{{ new Date(item.created_at).toLocaleString() }}</div>
-                <h2 class="card-title h4">{{item.title}}</h2>
+                <h2 class="card-title text-truncate h4">{{item.title}}</h2>
                 <router-link class="btn btn-outline-dark mt-auto" :to="/news/+item.id">Xem chi tiết</router-link>
               </div>
             </div>
@@ -91,7 +91,6 @@ export default {
       .then((response) => {
         this.newss = response.data.new;
         this.news = response.data.news;
-        
       })
       .catch((error) =>{
           console.error(error);

@@ -1,5 +1,5 @@
 const axios = require('axios');
-const APIUrl = 'http://the1s.tk/api/';
+const APIUrl = 'http://127.0.0.1:8000/api/';
 export default {
     getHeaders() {
         let token = window.localStorage.getItem('token');

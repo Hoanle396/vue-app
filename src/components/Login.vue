@@ -18,6 +18,7 @@
         <div class="form-group">
           <input
             v-model="user.password"
+            type="password"
             class="rounded-pill form-control"
             :class="{ 'is-invalid': error.password }"
             placeholder="Password"
@@ -76,8 +77,8 @@ export default {
 }
  body {
   font-family: "Roboto", sans-serif;
-  background: linear-gradient(45deg, rgb(116, 176, 255), rgb(255, 126, 223));
-  height: 100vh;
+  /* background: linear-gradient(45deg, rgb(116, 176, 255), rgb(255, 126, 223)); */
+  /* height: 150vh; */
   align-items: center;
   justify-content: center;
   background-size: cover;
@@ -146,43 +147,19 @@ input[type="submit"] {
   border-radius: 20px !important;
   font-size: 20px !important;
   font-weight: 100px !important;
-  color: #fff !important;
+  color: #111 !important;
   background-color: #5959fd !important;
   box-shadow: -10px -10px 15px rgba(0, 0, 0, 0.1),
     10px 10px 15px rgba(0, 0, 0, 0.1);
 }
 p {
-  color: #fff;
+  color: #111;
   padding: 15px 0px;
   letter-spacing: 1px;
 }
 span {
   padding: 18px 0px 0px 0px;
-  color: #ccc;
+  color: rgb(7, 7, 7);
   font-size: 20px;
-}
-.SocialMedia {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 35px 0px;
-}
-.Facebook {
-  background-color: #4267b2;
-  color: #fff;
-}
-.twitter {
-  background-color: #1da1f2;
-}
-.Facebook,
-.twitter {
-  width: 100px;
-  padding: 7px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 20px;
-  margin-right: 20px;
-  letter-spacing: 2px;
 }
 </style>

@@ -58,7 +58,7 @@
                 </div>
               </div>
               <div class="mb-3 col-12">
-                <label>Nội dung</label>
+                <label>Nội dung chuyển khoản (bắt buộc)</label>
                 <div class="input-group">
                   <input
                     type="text"

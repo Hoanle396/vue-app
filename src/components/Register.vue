@@ -29,6 +29,7 @@
         
         <div class="form-group">
           <input
+            type="password"
             class="rounded-pill form-control"
             placeholder="Password"
             v-model='user.password'
@@ -40,6 +41,7 @@
         </div>
         <div class="form-group">
           <input
+            type="password"
             class="rounded-pill form-control"
             placeholder="Comfrim Password"
             v-model='user.password2'

@@ -38,7 +38,6 @@
                   class="form-control col6"
                   placeholder="Ngày Sinh"
                   required="true"
-                  onkeypress="return false;"
                   size="30"
                   v-model="service.birthday"
                 />
