@@ -14,6 +14,9 @@
                   <a href="#orders" data-toggle="tab" class=""
                     ><i class="fa fa-cart-arrow-down"></i> Giỏ Hàng</a
                   >
+                  <a href="#account-order" data-toggle="tab" class=""
+                    ><i class="fa fa-history"></i> Đơn Hàng
+                  </a>
                   <a href="#account-info" data-toggle="tab" class=""
                     ><i class="fa fa-user"></i> Tài Khoản
                   </a>
@@ -41,7 +44,9 @@
                         <p>
                           Xin Chào, <strong>{{ user.name }}</strong> (nếu không
                           phải <strong>{{ user.name }}</strong
-                          ><a href="#" @click="logout()" class="logout"> Đăng xuất</a>)
+                          ><a href="#" @click="logout()" class="logout">
+                            Đăng xuất</a
+                          >)
                         </p>
                       </div>
 
@@ -69,7 +74,7 @@
                               <th>Thao Tác</th>
                             </tr>
                           </thead>
-                          
+
                           <tbody>
                             <tr
                               v-for="product in products"
@@ -78,13 +83,30 @@
                               <td>{{ product.product_name }}</td>
                               <td>{{ product.product_price }}</td>
                               <td>{{ product.quantity }}</td>
-                              <td>{{ product.quantity*product.product_price}}</td>
-                              <td><button @click="remove(product)" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></button></td>
+                              <td>
+                                {{ product.quantity * product.product_price }}
+                              </td>
+                              <td>
+                                <button
+                                  @click="remove(product)"
+                                  class="btn btn-danger btn-sm"
+                                >
+                                  <i class="fa fa-trash"></i>
+                                </button>
+                              </td>
                             </tr>
-                            <tr> <center><router-link class="btn btn-success" to="/Checkout">Thanh Toán</router-link></center></tr>
+                            <tr>
+                              <center>
+                                <router-link
+                                  class="btn btn-success"
+                                  to="/Checkout"
+                                  >Thanh Toán</router-link
+                                >
+                              </center>
+                            </tr>
                           </tbody>
                         </table>
-                       
+
                         <div v-if="!products">
                           <p>Giỏ Hàng Trống</p>
                         </div>
@@ -92,7 +114,47 @@
                     </div>
                   </div>
                   <!-- Single Tab Content End -->
+                  <div class="tab-pane fade" id="account-order" role="tabpanel">
+                    <div class="myaccount-content">
+                      <h3>Lịch Sử Đặt Hàng</h3>
+                      <div class="myaccount-table table-responsive text-center">
+                        <table class="table table-bordered" v-if="order">
+                          <thead class="thead-light">
+                            <tr>
+                              <th>Sản Phẩm</th>
+                              <th>SL</th>
+                              <th>Thanh Toán</th>
+                              <th>Trạng Thái</th>
+                              <!-- <th>Thao Tác</th> -->
+                            </tr>
+                          </thead>
 
+                          <tbody>
+                            <tr
+                              v-for="o in order"
+                              :key="o.code"
+                            >
+                              <td>{{ o.product_name.substring(0,50) }}</td>
+                              <td>{{ o.product_quantity}}</td>
+                              <td>{{ o.order_pay }}</td>
+                              <td>{{ o.order_status }}</td>
+                              <!-- <td>
+                                <button
+                                  @click="remove(o)"
+                                  class="btn btn-danger btn-sm"
+                                >
+                                  <i class="fa fa-trash"></i>
+                                </button>
+                              </td> -->
+                            </tr>
+                          </tbody>
+                        </table>
+                        <div v-if="!order">
+                          <p>Đơn Hàng Trống</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                   <div class="tab-pane fade" id="account-info" role="tabpanel">
                     <div class="myaccount-content">
                       <h3>Chi Tiết Tài Khoản</h3>
@@ -197,7 +259,7 @@
                                 <input
                                   type="password"
                                   required="true"
-                                   v-model="pwd.confirmpwd"
+                                  v-model="pwd.confirmpwd"
                                 />
                               </div>
                             </div>
@@ -232,11 +294,12 @@ export default {
     return {
       user: {},
       products: {},
-      pwd : {
-        email:'',
-        currentpwd:'',
-        newpwd:'',
-        confirmpwd:'',
+      order:{},
+      pwd: {
+        email: "",
+        currentpwd: "",
+        newpwd: "",
+        confirmpwd: "",
       },
     };
   },
@@ -248,45 +311,50 @@ export default {
       BaseRequest.get("user")
         .then((response) => {
           this.user = response.data;
-          this.products = JSON.parse(window.localStorage.getItem("cart"));
-          console.log(this.user);
-        })
-        .catch(() => {
+          this.products = JSON.parse(window.localStorage.getItem("cart"))
+          BaseRequest.get('history/'+this.user.email).then((res) => {
+            this.order= res.data;
+          })
+        }).catch(() => {
           this.$router.push({ name: "login" });
+      })
+    },
+    change: function () {
+      BaseRequest.post("change", this.user)
+        .then(() => {
+          alert("Đã Cập Nhật Thay Đổi!");
+        })
+        .catch((error) => {
+          alert(error.response.data.message);
         });
     },
-    change: function (){
-      BaseRequest.post('change',this.user)
-      .then(() => {
-          alert('Đã Cập Nhật Thay Đổi!')
-      }).catch((error) => {
-        console.log(error)
-      })
+    password: function () {
+      this.pwd.email = this.user.email;
+      console.log(this.pwd);
+      BaseRequest.post("password", this.pwd)
+        .then((response) => {
+          alert(response.data.message);
+        })
+        .catch((error) => {
+          alert(error.response.data.message);
+        });
     },
-    password:function () {
-      this.pwd.email=this.user.email;
-      console.log(this.pwd)
-      BaseRequest.post('password',this.pwd).then((response) => {
-        alert(response.data.message)
-       
-      }).catch((error) => {
-        alert(error.response.data.message)
-      })
+    remove: function (product) {
+      let objArr = JSON.parse(window.localStorage.getItem("cart"));
+      this.products = objArr.filter(
+        (data) => data.product_id != product.product_id
+      );
+
+      localStorage.setItem("cart", JSON.stringify(this.products));
+      if (this.products.length == 0) {
+        window.localStorage.removeItem("cart");
+        this.products = null;
+      }
     },
-    remove: function(product){
-        let objArr = JSON.parse(window.localStorage.getItem("cart"));
-        this.products = objArr.filter(data => data.product_id != product.product_id);
-        
-         localStorage.setItem('cart', JSON.stringify(this.products))
-         if(this.products.length==0){
-           window.localStorage.removeItem("cart")
-           this.products=null;
-        }
+    logout: function () {
+      window.localStorage.removeItem("token");
+      this.$router.push({ name: "home" });
     },
-    logout : function(){
-       window.localStorage.removeItem("token")
-       this.$router.push({name:"home"})
-    }
   },
 };
 </script>
