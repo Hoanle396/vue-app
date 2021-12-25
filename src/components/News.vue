@@ -93,7 +93,7 @@ export default {
         this.news = response.data.news;
       })
       .catch((error) =>{
-          console.error(error);
+          console.log(error);
       })
     },
   },
