@@ -38,7 +38,7 @@
                     v-model="search"
                     @keyup="searchs()"
                     placeholder="Nhập Nội Dung "
-                  /><button @click="talk()" class="btn btn-small"><i class="fa fa-microphone" ></i></button>
+                  /><button @click="talk()" class="btn btn-small"><i class="fa fa-microphone " id="tlks" ></i></button>
                 </div>
               </div>
             </div>
@@ -104,7 +104,8 @@ export default {
       search: "",
       form: false,
       value:1000000,
-       lang_: "vi-VN"
+       lang_: "vi-VN",
+      //  talks:false
     };
   },
   mounted() {
@@ -155,11 +156,12 @@ export default {
        }
     },
     talk: function (){
+    document.getElementById("tlks").style.color="red";
     window.SpeechRecognition =window.SpeechRecognition ||  window.webkitSpeechRecognition;
     const recognition = new window.SpeechRecognition();
     recognition.lang = this.lang_;
     recognition.interimResults = true;
-
+    
     // event current voice reco word
     recognition.addEventListener("result", event => {      
       var text = Array.from(event.results)
@@ -172,13 +174,22 @@ export default {
     // end of transcription
     recognition.addEventListener("end", () => {
       recognition.stop();
+      // this.talks=false;
+      document.getElementById("tlks").style.color="black";
+      // console.log(this.talks)
     });
+    //  this.talks=true;
+    //  console.log(this.talks)
      recognition.start();
+     
     }
   },
 }
 </script>
 <style>
+.redtext{
+  color:red;
+}
 .page-link {
   height: 40px;
   width: 40px;
