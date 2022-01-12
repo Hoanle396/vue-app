@@ -50,7 +50,7 @@
           :key="item.product_id"
           class="col-md-3 mb-5"
         >
-          <div class="card h-100">
+          <div class="card h-100" data-aos="zoom-in">
             <img class="card-img-top" :src="item.product_image" alt="..." />
             <div class="card-body p-4">
               <div class="text-center">
