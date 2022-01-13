@@ -130,7 +130,7 @@ form {
 }
 
 .rounded-pill {
-  margin-top: 40px;
+  margin-top: 20px;
   width: 300px !important;
   height: 40px !important;
   border: none !important;
