@@ -80,7 +80,7 @@
                               v-for="product in products"
                               :key="product.product_id"
                             >
-                              <td>{{ product.product_name }}</td>
+                              <td><router-link :to="/product/ +product.product_id">{{ product.product_name }}</router-link></td>
                               <td>{{ product.product_price }}</td>
                               <td>{{ product.quantity }}</td>
                               <td>
