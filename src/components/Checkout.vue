@@ -85,15 +85,6 @@
             </div>
           </div>
           <div class="mb-3">
-            <label for="address2">Địa Chỉ 2 </label>
-            <input
-              type="text"
-              class="form-control"
-              size="40"
-              placeholder="Apartment or suite"
-            />
-          </div>
-          <div class="mb-3">
             <label for="address"> Số Điện Thoại</label>
             <input
               type="text"
