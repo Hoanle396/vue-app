@@ -146,6 +146,7 @@
 <script>
 const axios = require("axios");
 import BaseRequest from "../core/BaseRequest"
+import Swal from 'sweetalert2'
 export default {
    data() {
     
@@ -181,9 +182,12 @@ export default {
     },
     send(){
       BaseRequest.post('service',this.service)
-      .then(response=>{
-       this.message="Đã đăng kí thành công !"
-         console.log(response)
+      .then(()=>{
+       Swal.fire(
+             'Hoàn Thành',
+             'Đăng Kí Thành Công',
+             'success'
+         )
          this.service.fullname = '';
          this.service.gender = 'Nam';
          this.service.birthday = '';
@@ -194,7 +198,11 @@ export default {
          this.service.officePhone = '';
       })
       .catch(()=>{
-          this.message="Đăng kí thất bại có lỗi từ hệ thống !";
+          Swal.fire(
+             'Thất Bại',
+             'Đăng kí thất bại',
+             'error'
+         )
       })
     }
   },

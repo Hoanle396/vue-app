@@ -94,6 +94,7 @@
 </template>
 <script>
 import BaseRequest from "../core/BaseRequest";
+import Swal from 'sweetalert2'
 export default {
   data() {
     return {
@@ -126,17 +127,22 @@ export default {
     done: function () {
       BaseRequest.post("done", this.bank)
         .then(() => {
-          alert(
-            "Cảm ơn Bạn Đã Mua Hàng Chúng Tôi Sẽ Sớm Liên Hệ Về Đơn Hàng Của Bạn"
-          );
+           Swal.fire(
+             'Hoàn Thành',
+             'Cảm ơn Bạn Đã Mua Hàng Chúng Tôi Sẽ Sớm Liên Hệ Về Đơn Hàng Của Bạn',
+             'success'
+         )
           window.localStorage.removeItem("code");
           window.localStorage.removeItem("total");
           window.localStorage.removeItem("cart");
           this.$router.push({ name: "home" });
         })
-        .catch((error) => {
-          alert("Đã Xảy Ra Lỗi Khi Thanh Toán Đơn Hàng Của Bạn");
-          console.log(error);
+        .catch(() => {
+           Swal.fire(
+             'Thất bại',
+             'Đã Xảy Ra Lỗi Khi Thanh Toán Đơn Hàng Của Bạn',
+             'error'
+         )
         });
     },
   },

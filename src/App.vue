@@ -22,4 +22,5 @@ import 'jquery/src/jquery.js';
 
 <style>
 @import "~bootstrap/dist/css/bootstrap.css";
+@import "~sweetalert2/dist/sweetalert2.min.css";
 </style>

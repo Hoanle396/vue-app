@@ -129,6 +129,7 @@
 </template>
 <script>
 import BaseRequest from "../core/BaseRequest";
+import Swal from 'sweetalert2'
 export default {
   data() {
     return {
@@ -162,7 +163,10 @@ export default {
         pay: pay,
         total: this.total,
       };
-
+      if(data.user.phonenumber==null || data.user.email==null || data.user.address==null || data.user.name==null){
+       this.message="thông tin nhận hàng không được bỏ trống";
+      }
+      else{
       BaseRequest.post("checkout", data)
         .then((response) => {
           this.message=response.data.message;
@@ -171,12 +175,23 @@ export default {
           if (response.data.redirect) {
             this.$router.push({ name: "bank" });
           } else {
+            Swal.fire(
+             'Hoàn Thành',
+             'Cảm ơn Bạn Đã Mua Hàng Chúng Tôi Sẽ Sớm Liên Hệ Về Đơn Hàng Của Bạn',
+             'success'
+         )
             window.localStorage.removeItem("cart");
           }
         })
         .catch((error) => {
+          Swal.fire(
+             'Thất bại',
+             'Đã Xảy Ra Lỗi Khi Thanh Toán Đơn Hàng Của Bạn',
+             'error'
+         )
           this.message = error.response.data.message;
         });
+      } 
     },
   },
 };

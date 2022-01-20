@@ -60,6 +60,7 @@
 </template>
 <script>
 import BaseRequest from "../core/BaseRequest"
+import Swal from 'sweetalert2'
 export default {
     data() {
         return {
@@ -76,18 +77,24 @@ export default {
     methods:{
          send(){
       BaseRequest.post('feedback',this.feedback)
-      .then(response=>{
-       this.message="Cảm ơn bạn đã phản hồi!";
-         console.log(response)
+      .then(()=>{
+       Swal.fire(
+             'Hoàn Thành',
+             'Đăng Kí Thành Công',
+             'success'
+         )
          this.feedback.firstname = '';
          this.feedback.lastname = '';
          this.feedback.email = '';
          this.feedback.phonenumber = '';
          this.feedback.message = '';
       })
-      .catch(error=>{
-          alert(error.message)
-          console.log(error)
+      .catch(()=>{
+          Swal.fire(
+             'Thất Bại',
+             'Phản hồi thất bại',
+             'error'
+         )
       })
     }
     }

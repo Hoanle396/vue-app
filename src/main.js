@@ -17,6 +17,7 @@ import notfound from './components/layout/404.vue'
 import 'bootstrap'
 import AOS from 'aos'
 import 'aos/dist/aos.css'
+import "sweetalert2/dist/sweetalert2.min.css"
 Vue.config.productionTip = false
 Vue.use(VueRouter)
 const routes = [
