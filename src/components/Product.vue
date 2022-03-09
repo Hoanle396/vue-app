@@ -105,7 +105,6 @@ export default {
       form: false,
       value:1000000,
        lang_: "vi-VN",
-      //  talks:false
     };
   },
   mounted() {
@@ -162,7 +161,6 @@ export default {
     recognition.lang = this.lang_;
     recognition.interimResults = true;
     
-    // event current voice reco word
     recognition.addEventListener("result", event => {      
       var text = Array.from(event.results)
         .map(result => result[0])
@@ -171,15 +169,10 @@ export default {
       this.search = text.substring(0, text.length-1);
       this.searchs();
     });
-    // end of transcription
     recognition.addEventListener("end", () => {
       recognition.stop();
-      // this.talks=false;
       document.getElementById("tlks").style.color="black";
-      // console.log(this.talks)
     });
-    //  this.talks=true;
-    //  console.log(this.talks)
      recognition.start();
      
     }
