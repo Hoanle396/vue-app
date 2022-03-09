@@ -1,5 +1,5 @@
 const axios = require('axios');
-const APIUrl = 'http://serveryte.herokuapp.com/api/';
+const APIUrl = 'https://serveryte.herokuapp.com/api/';
 export default {
     getHeaders() {
         let token = window.localStorage.getItem('token');
