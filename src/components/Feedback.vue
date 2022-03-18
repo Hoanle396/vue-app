@@ -33,12 +33,12 @@
                                 <input type="text" class="form-control mt-2" placeholder="Phone Number" v-model="feedback.phonenumber" required>
                             </div>
                         </div>
-                        <div class="col-12">
+                        <div class="col-12 mt-3">
                             <div class="form-group">
                                 <textarea class="form-control" id="exampleFormControlTextarea1" placeholder="Message" rows="3" v-model="feedback.message" required></textarea>
                             </div>
                         </div>
-                        <div class="col-6">
+                        <div class="col-6 mt-3">
                             <div class="form-group">
                                 <div class="form-check">
                                     <input class="form-check-input" type="checkbox" value="" id="invalidCheck2" required>
@@ -48,7 +48,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-6 text-right">
+                        <div class="col-6 text-right mt-3">
                             <input class="btn btn-primary" type="submit" value="Send Message"/>
                         </div>
                     </div>

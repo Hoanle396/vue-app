@@ -179,7 +179,7 @@ export default {
   },
 }
 </script>
-<style>
+<style scoped>
 .redtext{
   color:red;
 }

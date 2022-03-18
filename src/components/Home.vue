@@ -296,8 +296,7 @@ export default {
   // },
 };
 </script>
-<style>
---------------------------------------------------------------*/
+<style scoped>
 .why-us .content {
   padding: 30px;
   background: #1977cc;

@@ -358,7 +358,7 @@ export default {
   },
 };
 </script>
-<style>
+<style scoped>
 .myaccount-page-wrapper {
   position: static;
 }
