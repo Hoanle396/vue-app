@@ -18,7 +18,7 @@
               <div class="col-md-12">
                 <input
                   type="text"
-                  class="form-control "
+                  class="form-control col12"
                   placeholder="Họ Và Tên"
                   required="true"
                   v-model="service.fullname"
@@ -26,8 +26,9 @@
               </div>
             </div>
             <div class="form-group row ">
-              <div class="col-md-6 ">
-                <select name="gender" v-model="service.gender" class="form-control " >
+              <div class="col-md-6 col6">
+                <select name="gender" v-model="service.gender" 
+                   class="form-control" >
                   <option value="Nam">Nam</option>
                   <option value="Nữ">Nữ</option>
                 </select>
@@ -35,7 +36,7 @@
               <div class="col-md-6">
                 <input
                   type="date"
-                  class="form-control "
+                  class="form-control  col6"
                   placeholder="Ngày Sinh"
                   required="true"
                   size="30"
@@ -43,9 +44,9 @@
                 />
               </div>
             </div>
-            <div class="form-group row ">
+            <div class="form-group row">
               <div class="col-md-12">
-                <select name="nationality" v-model="service.address" class="form-control ">
+                <select name="nationality" v-model="service.address" class="form-control col12">
                   <option
                     v-for="result in city"
                     :key="result.province_id"
@@ -211,7 +212,7 @@ export default {
 </script>
 <style scoped>
 .col12{
-  width: 29rem;
+  width: 28rem;
 }
 .form-group{
   margin-top :1rem;
